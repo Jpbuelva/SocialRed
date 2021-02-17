@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
+import { LoginService } from 'src/app/shared/components/login/login.service';
 import { MypostService } from '../../mypost.service';
 
 @Component({
@@ -9,6 +10,8 @@ import { MypostService } from '../../mypost.service';
 })
 export class ListComponent implements OnInit {
   posts$ = this.service.posts;
+  list: any[];
+
   navigationExtra: NavigationExtras = {
     state: {
       value: null
@@ -16,7 +19,18 @@ export class ListComponent implements OnInit {
   };
 
 
-  constructor(private router: Router, private service: MypostService) { }
+  constructor(private router: Router,public login: LoginService, private service: MypostService) {
+    
+    this.posts$.subscribe(x => {
+      this.list=[];
+      x.forEach(item => {
+        if (item.idUser === this.login.usuario.uid) {
+          this.list.push(item);
+        }
+      });
+
+    });
+   }
 
   ngOnInit(): void {
   }

@@ -19,9 +19,13 @@
             </div>
         </div>
         <div class="form-group">
-            <label for="exampleInputFile">File input</label>
+            <label for="exampleInputFile">Agregue una Imagen</label>
             <input (change)="handleImagen($event)" type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp" formControlName="imagePost">
-
+            <div class="invalid-feedback">
+                <span *ngIf="formSave.get('imagePost').errors?.required">
+                    El campo es requerido
+                </span>
+            </div>
         </div>
 
     </div>

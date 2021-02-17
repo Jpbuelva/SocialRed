@@ -9,11 +9,13 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { HeaderModule } from './shared/components/header/header.module';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { LoginComponent } from './shared/components/login/login.component';
  
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    LoginComponent
 
   ],
   imports: [

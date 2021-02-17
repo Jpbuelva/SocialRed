@@ -5,5 +5,14 @@ export interface Mypost {
     id?: string;
     tagsPost: string;
     fileRef?: string;
+    idUser:string;
+    userName:string;
+}
 
+export interface Commentary {
+    id?: string;
+    idPost:string;
+    commentary?: string;
+    userid?: string;
+    nameUse?: any;    
 }

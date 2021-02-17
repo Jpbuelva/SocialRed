@@ -15,6 +15,8 @@ import { MypostService } from '../../mypost.service';
 export class EditComponent implements OnInit {
   value: Mypost;
   formEdit: FormGroup;
+  private image: any;
+
   constructor(
     private router: Router,
     private mypostService: MypostService,
@@ -39,18 +41,22 @@ export class EditComponent implements OnInit {
     if (this.formEdit.valid) {
       const post = this.formEdit.value;
       const id = this.value?.id || null;
-      this.mypostService.save(post, id);
+      this.mypostService.prePost(post, this.image, id );
       this.formEdit.reset();
       this.router.navigate(['mypost']);
 
     }
 
   }
-
+  handleImagen(event: any): void {
+    this.image = event.target.files[0];
+    console.log('Imagen', this.image);
+  }
   private initForm(): void {
     this.formEdit = this.fb.group({
       titlePost: ['', [Validators.required]],
-      contentPost: ['', [Validators.required]]
+      contentPost: ['', [Validators.required]],
+      imagePost: ['', [Validators.required]]
     });
   }
 }

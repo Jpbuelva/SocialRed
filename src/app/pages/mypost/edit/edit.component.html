@@ -8,6 +8,15 @@
         <div class="form-group col-md-6">
             <input type="text" class="form-control" placeholder="Descripcion" formControlName="contentPost">
         </div>
+        <div class="form-group">
+            <label for="exampleInputFile">Agregue una Imagen</label>
+            <input (change)="handleImagen($event)" type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp" formControlName="imagePost">
+            <div class="invalid-feedback">
+                <span *ngIf="formEdit.get('imagePost').errors?.required">
+                    El campo es requerido
+                </span>
+            </div>
+        </div>
 
     </div>
     <button type="submit" class="btn bg-dark btn-block text-light">Guardar</button>

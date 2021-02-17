@@ -55,7 +55,7 @@ export class NewComponent implements OnInit {
     this.formSave = this.fb.group({
       titlePost: ['', [Validators.required]],
       contentPost: ['', [Validators.required]],
-      imagePost: ['', [ ]]
+      imagePost: ['', [Validators.required]]
     });
   }
 

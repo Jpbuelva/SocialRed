@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Red Social</a>
+    <a class="navbar-brand" [routerLink]="['/post']">Red Social</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -8,14 +8,14 @@
         <ul class="navbar-nav mr-auto">
 
             <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/mypost']">Mis publicaciones</a>
+                <a class="nav-link" [routerLink]="['/mypost']">Administrar</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/new']">Publicaciones</a>
+                <a class="nav-link" [routerLink]="['/post']">Publicaciones</a>
             </li>
 
 
         </ul>
-
+        <a class="float-right btn btn-outline-primary" (click)="login.logout()">LogOut</a>
     </div>
 </nav>
